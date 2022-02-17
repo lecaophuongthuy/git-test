@@ -13,8 +13,10 @@ function RenderBangluong({staff}) {
             <p> Mã nhân viên: {staff.id}</p>
             <p> Hệ số lương: {Math.round(staff.salaryScale)}</p>
             <p> Số giờ làm thêm: {staff. overTime}</p>
-            <div style={{backgroundColor:"#d6d4d8",width:150,marginLeft:8}}>
-                 Lương:{Math.round((Math.round(staff.salaryScale) * 3000000) + staff.overTime * 200000)} </div>
+            <div style={{backgroundColor:"#d6d4d8"}}>
+                <p style={{left:15}}> Lương:{Math.round((Math.round(staff.salaryScale) 
+                * 3000000) + staff.overTime * 200000)} </p>
+                </div>
             </CardBody>
         </Card>
     </div>
@@ -23,12 +25,10 @@ function RenderBangluong({staff}) {
     )
 }
 
-
-
 const Bangluong = (props) => {
     const bangluong = props.staffs.map((staff) => {
         return (
-            <div className="'col-xs-12 col-md-6 col-lg-4'">
+            <div className="col-xs-12 col-md-6 col-lg-4">
                <RenderBangluong staff={staff}>
                </RenderBangluong>
                </div>
