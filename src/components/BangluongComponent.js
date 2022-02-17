@@ -4,7 +4,14 @@ import { Link} from 'react-router-dom';
 
 function RenderBangluong({staff}) {
     return (
-        <Card></Card>
+    
+            <Card  style={{marginBottom:8,marginTop:8}}>
+            <CardTitle>
+               <p style={{fontWeight:"bold",fontSize:30}}>{staff.name}</p> 
+            </CardTitle>
+            
+        </Card>
+    
     )
 }
 
