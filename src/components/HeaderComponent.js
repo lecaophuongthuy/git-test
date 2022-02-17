@@ -33,23 +33,20 @@ class Header extends Component {
                  <Nav navbar>
                      <NavItem>
                          <NavLink className="nav-link" to="/staffs">
-                         <img src="assets/images/nhanvien.png" height="30" width="41"
-                    alt="Ristorante Con Fusion"/>
+                         <i class="fa fa-user" aria-hidden="true"></i>
                            Nhân viên
                          </NavLink>
                      </NavItem>
                      <NavItem>
                          <NavLink className="nav-link" to="/phongban">
-                         <img src="assets/images/phongban.png" height="30" width="41"
-                    alt="Ristorante Con Fusion"/>
+                         <i class="fa fa-address-card-o" aria-hidden="true"></i>
                             Phòng ban
                          </NavLink>
                      </NavItem>
                      <NavItem>
                        
                          <NavLink className="nav-link" to="/bangluong">
-                         <img src="assets/images/bangluong.jpg" height="30" width="41"
-                    alt="Ristorante Con Fusion"/>
+                         <i class="fa fa-money" aria-hidden="true"></i>
                             Bảng lương
                          </NavLink>
                      </NavItem>
