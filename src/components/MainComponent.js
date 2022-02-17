@@ -1,55 +1,47 @@
 import React, { Component} from 'react';
-import Home from './HomeComponent';
-import Menu from './MenuComponent';
-import Contact from './ContactComponent';
-import DishDetail from './DishdetailComponent';
+import StaffList from './StaffListComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import { DISHES} from '../shared/dishes';
-import { COMMENTS} from '../shared/comments';
-import { PROMOTIONS } from '../shared/promotions';
-import { LEADERS } from '../shared/leaders';
+import { STAFFS} from '../shared/staffs';
+import { DEPARTMENTS } from '../shared/staffs';
 import { Switch, Route, Redirect} from 'react-router-dom';
+import Bangluong from './BangluongComponent';
+import Phongban from './PhongbanComponent';
+import StaffDetail from './DetailStaffComponent';
+
 class Main extends Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        dishes: DISHES,
-        comments : COMMENTS,
-        promotions : PROMOTIONS,
-        leaders : LEADERS
+      staffs : STAFFS,
+      departments : DEPARTMENTS
       };
     }
+    
      
     render() {
 
-      const HomePage = () => {
-        return (
-          <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-            promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-              leader={this.state.leaders.filter((leader) =>leader.featured)[0]}        
-          />
-        );
-      }
+ 
 
-      const DishWithId = ({match}) => {
+      
+      const StaffWithId = ({match}) => {
         return (
-          <DishDetail dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-           comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
+          <StaffDetail staff={this.state.staffs.filter((staff) => staff.id === parseInt(match.params.staffId,10))[0]}
           />
         )
       }
 
+      
       return (
         <div>
           <Header/>
           <Switch>
-            <Route path="/home" component={HomePage}/>
-            <Route exact path="/menu" component={ () => <Menu dishes={this.state.dishes}/>} />
-            <Route path="/menu/:dishId" component={DishWithId}/>
-            <Route exact path="/contactus" component={Contact} />
-            <Redirect to="/home"/>
+            <Route exact path="/staffs" component={ () => <StaffList staffs={this.state.staffs}/>}/>
+            <Route exact path="/phongban" component={ () => <Phongban departments={this.state.departments}/>}/>
+            <Route exact path="/bangluong" component={ () => <Bangluong staffs={this.state.staffs}/>} />
+            <Route path="/staffs/:staffId" component={StaffWithId}/>
+            <Redirect to="/staffs"/>
           </Switch>
           <Footer/>
         </div>
