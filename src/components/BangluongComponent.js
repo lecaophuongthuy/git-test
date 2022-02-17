@@ -9,7 +9,9 @@ function RenderBangluong({staff}) {
             <CardTitle>
                <p style={{fontWeight:"bold",fontSize:30}}>{staff.name}</p> 
             </CardTitle>
-            
+            <p> Mã nhân viên: {staff.id}</p>
+            <p> Hệ số lương: {Math.round(staff.salaryScale)}</p>
+            <p></p>
         </Card>
     
     )
