@@ -1,15 +1,15 @@
 import React from "react";
-import {Card,CardImg,CardText,CardBody, CardTitle ,Breadcrumb, BreadcrumbItem} from 'reactstrap'
+import {Card,CardImg,CardBody,Breadcrumb, BreadcrumbItem} from 'reactstrap'
 import { Link} from 'react-router-dom';
 import dateFormat from "dateformat";
 
 function RenderStaff({staff}) {
     return (
         <div className='col-xs-12 col-md-4 col-lg-3'>
-           <Card>
+            <Card>
             <CardImg src={staff.image} alt={staff.name}></CardImg>
             </Card>
-            </div>
+        </div>
     )
 }
  
@@ -19,7 +19,7 @@ function RenderComments({staff}) {
            <div className='col-xs-12 col-md-8 col-lg-9'>
             <Card>
                 <CardBody>
-                     <p style={{fontWeight:"bold",fontSize:20}}> Họ Và tên : {staff.name}</p>
+                    <p style={{fontWeight:"bold",fontSize:20}}> Họ Và tên : {staff.name}</p>
                     <p> Ngày sinh : {dateFormat(staff.doB,"dd/mm/yyyy" )}</p>
                     <p>Ngày vào công ty : {dateFormat(staff.startDate,"dd/mm/yyyy")}</p>
                     <p>Phòng ban : {staff.department.name}</p>
@@ -27,8 +27,7 @@ function RenderComments({staff}) {
                     <p>Số ngày đã làm thêm : {staff.overTime}</p>       
                 </CardBody>
                   
-            </Card>
-                        
+            </Card>                        
            </div> 
         )
     }
@@ -37,6 +36,8 @@ function RenderComments({staff}) {
         <div></div>
     )
 }
+
+
 const StaffDetail = (props) => {
     if(props.staff != null) 
         return (
